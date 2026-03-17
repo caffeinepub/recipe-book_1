@@ -2,63 +2,9 @@ import type { Recipe } from "../backend.d";
 
 export const SAMPLE_RECIPES: Recipe[] = [
   {
-    id: BigInt(1),
-    title: "Avocado Toast with Poached Eggs",
-    category: "Breakfast",
-    description:
-      "Creamy smashed avocado on thick sourdough toast crowned with perfectly poached eggs, chili flakes, and a drizzle of extra virgin olive oil. A morning ritual worth waking up for.",
-    prepTime: "10 min",
-    cookTime: "8 min",
-    ingredients: [
-      "2 thick slices sourdough bread",
-      "1 large ripe avocado",
-      "2 fresh eggs",
-      "1 tbsp white vinegar",
-      "Juice of half a lemon",
-      "Red chili flakes, to taste",
-      "Sea salt and black pepper",
-      "Extra virgin olive oil",
-      "Fresh microgreens (optional)",
-    ],
-    steps: [
-      "Toast the sourdough slices until golden and crisp.",
-      "Halve and pit the avocado. Scoop into a bowl, add lemon juice, salt, and pepper. Mash to your preferred texture.",
-      "Bring a shallow saucepan of water to a gentle simmer. Add white vinegar.",
-      "Crack each egg into a small cup. Swirl the water gently and slide eggs in one at a time. Poach 3–4 minutes until whites set but yolks remain runny.",
-      "Spread the smashed avocado generously over each toast slice.",
-      "Lift poached eggs with a slotted spoon, dab dry, and place on top of avocado.",
-      "Finish with chili flakes, a drizzle of olive oil, and microgreens if using. Serve immediately.",
-    ],
-    alternates: [
-      {
-        original: "Sourdough bread",
-        alternate: "Regular sandwich bread or multigrain bread",
-        reason:
-          "Sourdough is not commonly available in Indian bakeries or grocery stores.",
-      },
-      {
-        original: "Avocado",
-        alternate: "Mashed banana with a pinch of salt, or thick hummus",
-        reason:
-          "Avocados are expensive and not easily found in most Indian markets.",
-      },
-      {
-        original: "Extra virgin olive oil",
-        alternate: "Regular refined oil or groundnut oil",
-        reason:
-          "Extra virgin olive oil is costly; regular cooking oil works well as a substitute.",
-      },
-      {
-        original: "Fresh microgreens",
-        alternate: "Fresh coriander leaves or mint leaves",
-        reason:
-          "Microgreens are rarely available in Indian markets; coriander is a common household item.",
-      },
-    ],
-  },
-  {
     id: BigInt(2),
     title: "Classic French Omelette",
+    servings: 1,
     category: "Breakfast",
     description:
       "The silkiest, most luxurious omelette you'll ever make. No color, no fuss — just eggs coaxed into a pale, custard-soft roll that melts in your mouth. A fundamental technique every cook should master.",
@@ -111,6 +57,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(3),
     title: "Spaghetti alla Carbonara",
+    servings: 4,
     category: "Lunch",
     description:
       "The authentic Roman classic — no cream, no shortcuts. Just guanciale, eggs, Pecorino Romano, and the magic of pasta water creating a sauce of silky, emulsified perfection. This is pure Italian soul food.",
@@ -162,63 +109,9 @@ export const SAMPLE_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: BigInt(4),
-    title: "Roasted Tomato Soup",
-    category: "Lunch",
-    description:
-      "Slow-roasted tomatoes concentrate into deep, jammy sweetness. Blended with roasted garlic and fresh basil, this soup is what comfort tastes like. Serve with a grilled cheese for a lunch that feels like a hug.",
-    prepTime: "15 min",
-    cookTime: "1 hr",
-    ingredients: [
-      "1.5 kg ripe Roma tomatoes, halved",
-      "1 whole head of garlic",
-      "1 large white onion, quartered",
-      "4 tbsp extra virgin olive oil",
-      "1 tsp sugar",
-      "500ml vegetable stock",
-      "Large handful of fresh basil",
-      "Salt and pepper",
-      "Double cream, to serve",
-    ],
-    steps: [
-      "Preheat oven to 200°C. Arrange tomatoes cut-side up on a baking tray with onion quarters.",
-      "Cut the top off the garlic head to expose cloves. Nestle beside tomatoes.",
-      "Drizzle everything generously with olive oil, sprinkle with sugar, salt, and pepper.",
-      "Roast 45–55 minutes until tomatoes are caramelised and slightly charred at edges.",
-      "Squeeze garlic cloves from their skins into a blender. Add tomatoes, onion, and all the roasting juices.",
-      "Add stock and basil. Blend until completely smooth. Season to taste.",
-      "Pass through a sieve for silkier texture if desired. Reheat gently and serve with a swirl of cream.",
-    ],
-    alternates: [
-      {
-        original: "Extra virgin olive oil",
-        alternate: "Regular refined sunflower oil or groundnut oil",
-        reason:
-          "Extra virgin olive oil is expensive; regular cooking oil gives the same result for roasting.",
-      },
-      {
-        original: "Double cream",
-        alternate: "Fresh malai or Amul fresh cream",
-        reason:
-          "Double cream is not commonly available in India; Amul fresh cream or thick malai is an easy substitute.",
-      },
-      {
-        original: "Vegetable stock",
-        alternate: "Water with a pinch of salt or homemade dal water",
-        reason:
-          "Packaged vegetable stock is not a staple in Indian kitchens; plain water or dal water works fine.",
-      },
-      {
-        original: "Fresh basil",
-        alternate: "Fresh coriander leaves or tulsi (holy basil) leaves",
-        reason:
-          "Italian basil is hard to find in most Indian markets; coriander is always available and adds freshness.",
-      },
-    ],
-  },
-  {
     id: BigInt(5),
     title: "Herb-Crusted Rack of Lamb",
+    servings: 4,
     category: "Dinner",
     description:
       "An impressive centrepiece for any dinner table. A rack of lamb coated in a fragrant crust of fresh herbs, Dijon mustard, and breadcrumbs — roasted to a perfect blushing pink inside. Simple to prepare, spectacular to serve.",
@@ -272,62 +165,9 @@ export const SAMPLE_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: BigInt(6),
-    title: "Miso-Glazed Salmon",
-    category: "Dinner",
-    description:
-      "A Japanese-inspired weeknight wonder. The sweet-savory miso glaze caramelises under the grill into a lacquered, umami-rich crust while the salmon stays silky and moist inside. Ready in 20 minutes, tastes like a restaurant dish.",
-    prepTime: "5 min",
-    cookTime: "15 min",
-    ingredients: [
-      "4 salmon fillets (skin-on)",
-      "3 tbsp white miso paste",
-      "2 tbsp mirin",
-      "1 tbsp sake (or dry sherry)",
-      "1 tbsp soy sauce",
-      "1 tsp sesame oil",
-      "1 tsp fresh ginger, grated",
-      "Toasted sesame seeds and spring onions to serve",
-    ],
-    steps: [
-      "Whisk together miso, mirin, sake, soy sauce, sesame oil, and ginger until smooth.",
-      "Pat salmon dry. Place in a shallow dish and coat with miso marinade. Marinate 15–30 minutes (or up to overnight in the fridge).",
-      "Preheat grill/broiler to high. Line a baking tray with foil and grease lightly.",
-      "Place salmon skin-side down on the tray. Spoon any remaining marinade over the top.",
-      "Grill 8–10 minutes until glaze is caramelised and slightly charred, and salmon flakes at the thickest part.",
-      "Transfer to plates, scatter with sesame seeds and sliced spring onions. Serve with steamed rice.",
-    ],
-    alternates: [
-      {
-        original: "White miso paste",
-        alternate: "A mix of peanut butter + soy sauce + a pinch of salt",
-        reason:
-          "Miso paste is a Japanese ingredient not available in most Indian stores; this combination mimics the salty-umami taste.",
-      },
-      {
-        original: "Mirin",
-        alternate: "1 tbsp sugar dissolved in 1 tbsp water or apple juice",
-        reason:
-          "Mirin is a Japanese sweet rice wine unavailable in India; sweetened water gives similar sweetness to the glaze.",
-      },
-      {
-        original: "Sake",
-        alternate: "Skip it or add a small splash of white vinegar",
-        reason:
-          "Sake is a Japanese rice wine not easily available in Indian stores; it can be skipped without major impact.",
-      },
-      {
-        original: "Sesame oil",
-        alternate:
-          "Regular cooking oil with a tiny pinch of roasted sesame seeds blended in",
-        reason:
-          "Sesame oil is available in some Indian stores but can be pricey; plain oil with crushed sesame seeds gives a similar flavor.",
-      },
-    ],
-  },
-  {
     id: BigInt(7),
     title: "Chocolate Lava Cake",
+    servings: 6,
     category: "Dessert",
     description:
       "The ultimate crowd-pleasing dessert — a rich chocolate cake with a warm, molten centre that flows like lava when you break it open. Made with just five ingredients and ready in 15 minutes. Pure theatre, pure indulgence.",
@@ -380,54 +220,152 @@ export const SAMPLE_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: BigInt(8),
-    title: "Lemon Posset with Shortbread",
-    category: "Dessert",
+    id: BigInt(10),
+    title: "Mango Lassi",
+    servings: 2,
+    category: "Beverages",
     description:
-      "An elegant, almost magical British dessert made with just three ingredients. Double cream and sugar set firm with the acidity of lemon juice — no gelatine needed. Silky, intensely lemony, and utterly refined.",
+      "A thick, creamy, gloriously golden drink that captures the taste of Indian summers. Ripe Alphonso mangoes blended with chilled curd and a hint of cardamom — refreshing, filling, and utterly satisfying.",
     prepTime: "10 min",
-    cookTime: "5 min",
+    cookTime: "0 min",
     ingredients: [
-      "600ml double cream",
-      "175g caster sugar",
-      "Juice of 3 large lemons (about 100ml)",
-      "Zest of 2 lemons",
-      "Shortbread biscuits to serve",
-      "Fresh raspberries and mint to garnish",
+      "1 cup ripe mango pulp (fresh or canned Alphonso)",
+      "1 cup thick curd (dahi)",
+      "½ cup chilled milk",
+      "2 tbsp sugar (adjust to sweetness of mango)",
+      "¼ tsp cardamom powder",
+      "A pinch of saffron strands soaked in 1 tbsp warm milk (optional)",
+      "Ice cubes to serve",
     ],
     steps: [
-      "Combine cream and sugar in a heavy-based saucepan over medium heat. Stir to dissolve sugar.",
-      "Bring to a rolling boil, then boil for exactly 3 minutes, stirring occasionally.",
-      "Remove from heat. Add lemon juice and zest, stirring to combine.",
-      "Leave to cool for 10 minutes, then pass through a fine sieve.",
-      "Pour into 6 small serving glasses or ramekins.",
-      "Refrigerate at least 4 hours or overnight until set — the posset should be firm but yielding.",
-      "Serve with shortbread biscuits, fresh raspberries, and a sprig of mint.",
+      "If using fresh mangoes, peel, chop, and blend into a smooth pulp.",
+      "Add curd, milk, sugar, and cardamom to the blender with the mango pulp.",
+      "Blend on high for 1–2 minutes until completely smooth and frothy.",
+      "Taste and adjust sugar as needed.",
+      "Pour over ice cubes into tall glasses.",
+      "Drizzle saffron milk on top for garnish if using. Serve immediately.",
     ],
     alternates: [
       {
-        original: "Double cream",
-        alternate: "Amul fresh cream or thick malai collected from boiled milk",
+        original: "Alphonso mango pulp",
+        alternate:
+          "Any locally available ripe mango variety or canned mango pulp (Ratna/Kesar brand)",
         reason:
-          "Double cream (48% fat) is not available in India; Amul cream or thick malai is the closest substitute.",
+          "Alphonso is the premium variety, but any sweet ripe mango — Kesar, Dasheri, Totapuri — works beautifully.",
       },
       {
-        original: "Caster sugar",
-        alternate: "Regular fine sugar or powdered sugar",
+        original: "Thick curd (dahi)",
+        alternate: "Regular store-bought curd, slightly drained",
         reason:
-          "Caster sugar is finer than regular sugar; regular sugar dissolved well while heating works the same way.",
+          "Thicker curd gives a creamier lassi; if using thin curd, reduce the milk quantity slightly.",
       },
       {
-        original: "Shortbread biscuits",
-        alternate: "Parle-G biscuits or any butter biscuits",
+        original: "Saffron strands",
+        alternate: "A tiny pinch of turmeric for colour, or skip entirely",
         reason:
-          "Shortbread is not readily available everywhere in India; Parle-G or Marie biscuits are a common affordable substitute.",
+          "Saffron is optional and costly; it adds colour and fragrance but the lassi tastes great without it.",
+      },
+    ],
+  },
+  {
+    id: BigInt(13),
+    title: "Sprouted Moong Salad",
+    servings: 2,
+    category: "Salads",
+    description:
+      "A protein-packed salad made with home-sprouted green moong, tossed with crunchy vegetables, fresh herbs, and a tangy tamarind-lime dressing. Light, nutritious, and full of flavour.",
+    prepTime: "10 min",
+    cookTime: "0 min",
+    ingredients: [
+      "1 cup sprouted green moong (mung beans)",
+      "1 small tomato, finely chopped",
+      "½ cucumber, diced",
+      "1 small onion, finely chopped",
+      "1 green chilli, chopped",
+      "Handful fresh coriander",
+      "Juice of 1 lime",
+      "1 tsp tamarind paste",
+      "½ tsp chaat masala",
+      "Salt to taste",
+      "1 tsp jaggery or sugar (optional)",
+    ],
+    steps: [
+      "If sprouting at home, soak moong overnight, drain, and leave covered in a damp cloth for 6–8 hours until small tails appear.",
+      "Rinse sprouted moong well. You can use them raw or steam them briefly (3 minutes) if you prefer a softer texture.",
+      "Mix tamarind paste, lime juice, jaggery, chaat masala, and salt in a small bowl to make the dressing.",
+      "Combine sprouted moong, tomato, cucumber, onion, chilli, and coriander in a bowl.",
+      "Pour the dressing over and toss gently to coat everything.",
+      "Taste and adjust salt, lime, or sweetness.",
+      "Serve immediately as a snack or light meal.",
+    ],
+    alternates: [
+      {
+        original: "Sprouted moong",
+        alternate: "Canned chickpeas or boiled kabuli chana",
+        reason:
+          "If sprouting is not convenient, canned or boiled chickpeas give a similar protein-rich texture.",
       },
       {
-        original: "Fresh raspberries",
-        alternate: "Strawberries, sliced mango, or pomegranate seeds",
+        original: "Tamarind paste",
+        alternate: "Extra lime juice or amchur powder",
         reason:
-          "Raspberries are imported and expensive; local seasonal fruits like mango or strawberries add the same freshness.",
+          "Tamarind gives a distinctive sour depth; lime juice or dry mango powder is a widely available substitute.",
+      },
+      {
+        original: "Jaggery",
+        alternate: "Regular sugar or honey",
+        reason:
+          "Jaggery adds an earthy sweetness; refined sugar or honey achieves the same balance in the dressing.",
+      },
+    ],
+  },
+  {
+    id: BigInt(16),
+    title: "Boondi Raita",
+    servings: 4,
+    category: "Accompaniments",
+    description:
+      "A creamy, cooling yogurt side dish studded with crispy boondi pearls, seasoned with roasted cumin and a pinch of red chilli. The classic accompaniment to biryanis, pulaos, and spicy curries — a cooling balance on every plate.",
+    prepTime: "10 min",
+    cookTime: "0 min",
+    ingredients: [
+      "2 cups thick curd (dahi)",
+      "½ cup plain boondi (store-bought or homemade)",
+      "½ tsp roasted cumin powder (bhuna jeera)",
+      "¼ tsp red chilli powder",
+      "¼ tsp black salt (kala namak)",
+      "Salt to taste",
+      "A pinch of chaat masala",
+      "Fresh coriander leaves to garnish",
+      "2–3 tbsp cold water (to loosen the curd if needed)",
+    ],
+    steps: [
+      "Whisk the curd until smooth and creamy. Add cold water if it's too thick — it should pour easily.",
+      "Soak the boondi in warm water for 2–3 minutes to soften slightly. Drain and gently squeeze out excess water.",
+      "Add the softened boondi to the whisked curd.",
+      "Season with roasted cumin powder, red chilli powder, black salt, regular salt, and chaat masala.",
+      "Stir gently to combine everything without breaking the boondi.",
+      "Taste and adjust seasoning. Refrigerate for at least 15 minutes before serving — it thickens as it sits.",
+      "Garnish with fresh coriander and a dusting of extra cumin powder. Serve chilled.",
+    ],
+    alternates: [
+      {
+        original: "Plain boondi",
+        alternate: "Finely diced cucumber or pomegranate seeds",
+        reason:
+          "If boondi is unavailable, cucumber adds crunch and freshness; pomegranate gives a jewelled, tangy bite.",
+      },
+      {
+        original: "Thick curd (dahi)",
+        alternate: "Regular curd, drained for 30 minutes in a muslin cloth",
+        reason:
+          "Regular curd can be thickened easily at home by draining; store-bought hung curd also works.",
+      },
+      {
+        original: "Chaat masala",
+        alternate: "A pinch of amchur powder or extra black salt",
+        reason:
+          "Chaat masala adds a tangy spiced note; amchur or extra black salt replicates the sourness if chaat masala is unavailable.",
       },
     ],
   },

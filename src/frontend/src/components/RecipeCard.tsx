@@ -1,4 +1,4 @@
-import { Clock } from "lucide-react";
+import { Bookmark, Clock, Heart } from "lucide-react";
 import { motion } from "motion/react";
 import type { Recipe } from "../backend.d";
 
@@ -20,9 +20,25 @@ interface RecipeCardProps {
   recipe: Recipe;
   index: number;
   onClick: (recipe: Recipe) => void;
+  showBookmark?: boolean;
+  isBookmarked?: boolean;
+  onToggleBookmark?: (e: React.MouseEvent) => void;
+  showFavorite?: boolean;
+  isFavorited?: boolean;
+  onToggleFavorite?: (e: React.MouseEvent) => void;
 }
 
-export function RecipeCard({ recipe, index, onClick }: RecipeCardProps) {
+export function RecipeCard({
+  recipe,
+  index,
+  onClick,
+  showBookmark = false,
+  isBookmarked = false,
+  onToggleBookmark,
+  showFavorite = false,
+  isFavorited = false,
+  onToggleFavorite,
+}: RecipeCardProps) {
   const imgSrc = CATEGORY_IMAGES[recipe.category] ?? CATEGORY_IMAGES.Dinner;
   const categoryColor =
     CATEGORY_COLORS[recipe.category] ??
@@ -64,16 +80,70 @@ export function RecipeCard({ recipe, index, onClick }: RecipeCardProps) {
             {recipe.description}
           </p>
 
-          {/* Times */}
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" />
-              <span>Prep: {recipe.prepTime}</span>
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-primary" />
-              <span>Cook: {recipe.cookTime}</span>
-            </span>
+          {/* Times + action icons row */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5" />
+                <span>Prep: {recipe.prepTime}</span>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-primary" />
+                <span>Cook: {recipe.cookTime}</span>
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              {showFavorite && (
+                <button
+                  type="button"
+                  data-ocid={`recipe.toggle_fav.${index}`}
+                  aria-label={
+                    isFavorited ? "Remove from favorites" : "Add to favorites"
+                  }
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleFavorite?.(e);
+                  }}
+                  className={`p-1.5 rounded-full transition-all duration-200 hover:scale-110 ${
+                    isFavorited
+                      ? "text-red-500"
+                      : "text-muted-foreground hover:text-red-500"
+                  }`}
+                >
+                  <Heart
+                    className="w-4 h-4"
+                    fill={isFavorited ? "currentColor" : "none"}
+                    strokeWidth={2}
+                  />
+                </button>
+              )}
+
+              {showBookmark && (
+                <button
+                  type="button"
+                  data-ocid={`recipe.toggle.${index}`}
+                  aria-label={
+                    isBookmarked ? "Remove bookmark" : "Bookmark recipe"
+                  }
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleBookmark?.(e);
+                  }}
+                  className={`p-1.5 rounded-full transition-all duration-200 hover:scale-110 ${
+                    isBookmarked
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  <Bookmark
+                    className="w-4 h-4"
+                    fill={isBookmarked ? "currentColor" : "none"}
+                    strokeWidth={2}
+                  />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

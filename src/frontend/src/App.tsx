@@ -1,19 +1,50 @@
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BookOpen, ChefHat, Search } from "lucide-react";
+import {
+  BookOpen,
+  Bookmark,
+  ChefHat,
+  Heart,
+  LogIn,
+  LogOut,
+  Search,
+  User,
+} from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import { useMemo, useState } from "react";
 import type { Recipe } from "./backend.d";
+import { AlternatesPage } from "./components/AlternatesPage";
+import { BookmarksPage } from "./components/BookmarksPage";
+import { FavoritesPage } from "./components/FavoritesPage";
+import { LoginPage } from "./components/LoginPage";
+import { ProfilePage } from "./components/ProfilePage";
 import { RecipeCard } from "./components/RecipeCard";
 import { RecipeDetail } from "./components/RecipeDetail";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import { BookmarkProvider, useBookmarks } from "./context/BookmarkContext";
+import { FavoriteProvider, useFavorites } from "./context/FavoriteContext";
 import { SAMPLE_RECIPES } from "./data/sampleRecipes";
 import { useGetAllRecipes } from "./hooks/useQueries";
 
 const queryClient = new QueryClient();
 
-const CATEGORIES = ["All", "Breakfast", "Lunch", "Dinner", "Dessert"];
+const CATEGORIES = [
+  "All",
+  "Breakfast",
+  "Lunch",
+  "Dinner",
+  "Dessert",
+  "Beverages",
+  "Salads & Accompaniments",
+];
 const SKELETON_KEYS = ["sk1", "sk2", "sk3", "sk4", "sk5", "sk6", "sk7", "sk8"];
 
 // Build a lookup map of alternates by recipe id from sample data
@@ -21,10 +52,23 @@ const SAMPLE_ALTERNATES = new Map(
   SAMPLE_RECIPES.map((r) => [r.id.toString(), r.alternates ?? []]),
 );
 
+type Page =
+  | "list"
+  | "detail"
+  | "alternates"
+  | "login"
+  | "profile"
+  | "bookmarks"
+  | "favorites";
+
 function RecipeApp() {
+  const { user, logout } = useAuth();
+  const { toggleBookmark, isBookmarked } = useBookmarks();
+  const { toggleFavorite, isFavorited } = useFavorites();
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const [page, setPage] = useState<Page>("list");
 
   const { data: backendRecipes, isLoading } = useGetAllRecipes();
 
@@ -33,7 +77,6 @@ function RecipeApp() {
       Array.isArray(backendRecipes) && backendRecipes.length > 0
         ? backendRecipes
         : SAMPLE_RECIPES;
-    // Merge alternates from sample data if backend doesn't have them
     return recipes.map((r) => ({
       ...r,
       alternates: r.alternates?.length
@@ -44,7 +87,11 @@ function RecipeApp() {
 
   const filteredRecipes = useMemo(() => {
     let results = allRecipes;
-    if (activeCategory !== "All") {
+    if (activeCategory === "Salads & Accompaniments") {
+      results = results.filter(
+        (r) => r.category === "Salads" || r.category === "Accompaniments",
+      );
+    } else if (activeCategory !== "All") {
       results = results.filter((r) => r.category === activeCategory);
     }
     if (search.trim()) {
@@ -59,39 +106,199 @@ function RecipeApp() {
     return results;
   }, [allRecipes, activeCategory, search]);
 
+  // Split salads & accompaniments for the divider view
+  const saladRecipes = useMemo(
+    () =>
+      activeCategory === "Salads & Accompaniments" && !search.trim()
+        ? allRecipes.filter((r) => r.category === "Salads")
+        : null,
+    [allRecipes, activeCategory, search],
+  );
+
+  const accompanimentRecipes = useMemo(
+    () =>
+      activeCategory === "Salads & Accompaniments" && !search.trim()
+        ? allRecipes.filter((r) => r.category === "Accompaniments")
+        : null,
+    [allRecipes, activeCategory, search],
+  );
+
+  const handleSelectRecipe = (recipe: Recipe) => {
+    setSelectedRecipe(recipe);
+    setPage("detail");
+  };
+
+  const handleBackToList = () => {
+    setSelectedRecipe(null);
+    setPage("list");
+  };
+
+  const totalRecipes = allRecipes.length;
+
+  const renderRecipeCard = (recipe: Recipe, i: number) => (
+    <RecipeCard
+      key={recipe.id.toString()}
+      recipe={recipe}
+      index={i + 1}
+      onClick={handleSelectRecipe}
+      showBookmark={!!user}
+      isBookmarked={isBookmarked(recipe.id.toString())}
+      onToggleBookmark={(e) => {
+        e.stopPropagation();
+        toggleBookmark(recipe.id.toString());
+      }}
+      showFavorite={!!user}
+      isFavorited={isFavorited(recipe.id.toString())}
+      onToggleFavorite={(e) => {
+        e.stopPropagation();
+        toggleFavorite(recipe.id.toString());
+      }}
+    />
+  );
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-sm border-b border-border">
         <div className="container max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <button
-            type="button"
-            data-ocid="nav.link"
-            onClick={() => setSelectedRecipe(null)}
-            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
-            aria-label="Go to recipe list"
-          >
-            <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center">
-              <BookOpen className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">
+          <div className="flex items-center gap-2.5">
+            {/* Book icon with dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  data-ocid="nav.open_modal_button"
+                  className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center hover:opacity-80 transition-opacity"
+                  aria-label="Open menu"
+                >
+                  <BookOpen className="w-4 h-4 text-primary-foreground" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-44">
+                {!user ? (
+                  <DropdownMenuItem
+                    onClick={() => setPage("login")}
+                    className="gap-2 cursor-pointer"
+                    data-ocid="nav.link"
+                  >
+                    <LogIn className="w-4 h-4" />
+                    Login
+                  </DropdownMenuItem>
+                ) : (
+                  <>
+                    <DropdownMenuItem
+                      onClick={() => setPage("profile")}
+                      className="gap-2 cursor-pointer"
+                      data-ocid="nav.link"
+                    >
+                      <User className="w-4 h-4" />
+                      Profile
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => setPage("bookmarks")}
+                      className="gap-2 cursor-pointer"
+                      data-ocid="nav.link"
+                    >
+                      <Bookmark className="w-4 h-4" />
+                      Bookmarks
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => setPage("favorites")}
+                      className="gap-2 cursor-pointer"
+                      data-ocid="nav.link"
+                    >
+                      <Heart className="w-4 h-4 text-red-500" />
+                      Favorites
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => {
+                        logout();
+                        handleBackToList();
+                      }}
+                      className="gap-2 cursor-pointer text-destructive focus:text-destructive"
+                      data-ocid="nav.link"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Logout
+                    </DropdownMenuItem>
+                  </>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Title — navigates home */}
+            <button
+              type="button"
+              data-ocid="nav.link"
+              onClick={handleBackToList}
+              className="font-display font-bold text-xl text-foreground hover:opacity-80 transition-opacity"
+              aria-label="Go to recipe list"
+            >
               The Recipe Book
-            </span>
-          </button>
+            </button>
+          </div>
+
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            {user && (
+              <span className="flex items-center gap-1.5 text-xs font-medium text-primary mr-2">
+                <User className="w-3.5 h-3.5" />
+                {user.name}
+              </span>
+            )}
             <ChefHat className="w-3.5 h-3.5" />
-            <span>8 recipes</span>
+            <span>{totalRecipes} recipes</span>
           </div>
         </div>
       </header>
 
       <main className="flex-1">
         <AnimatePresence mode="wait">
-          {selectedRecipe ? (
+          {page === "login" ? (
+            <div key="login">
+              <LoginPage
+                onLoginSuccess={() => setPage("list")}
+                onBack={handleBackToList}
+              />
+            </div>
+          ) : page === "profile" ? (
+            <div key="profile">
+              <ProfilePage
+                onBack={handleBackToList}
+                onGoToLogin={() => setPage("login")}
+              />
+            </div>
+          ) : page === "bookmarks" ? (
+            <div key="bookmarks">
+              <BookmarksPage
+                allRecipes={allRecipes}
+                onSelectRecipe={handleSelectRecipe}
+                onBack={handleBackToList}
+              />
+            </div>
+          ) : page === "favorites" ? (
+            <div key="favorites">
+              <FavoritesPage
+                allRecipes={allRecipes}
+                onSelectRecipe={handleSelectRecipe}
+                onBack={handleBackToList}
+              />
+            </div>
+          ) : page === "alternates" && selectedRecipe ? (
+            <div
+              key="alternates"
+              className="container max-w-6xl mx-auto px-4 py-8"
+            >
+              <AlternatesPage
+                recipe={selectedRecipe}
+                onBack={() => setPage("detail")}
+              />
+            </div>
+          ) : page === "detail" && selectedRecipe ? (
             <div key="detail" className="container max-w-6xl mx-auto px-4 py-8">
               <RecipeDetail
                 recipe={selectedRecipe}
-                onBack={() => setSelectedRecipe(null)}
+                onBack={handleBackToList}
+                onViewAlternates={() => setPage("alternates")}
               />
             </div>
           ) : (
@@ -121,7 +328,6 @@ function RecipeApp() {
               {/* Filters */}
               <div className="container max-w-6xl mx-auto px-4 py-6">
                 <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-6">
-                  {/* Search */}
                   <div className="relative w-full sm:w-72">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
@@ -133,7 +339,6 @@ function RecipeApp() {
                     />
                   </div>
 
-                  {/* Category tabs */}
                   <Tabs
                     value={activeCategory}
                     onValueChange={setActiveCategory}
@@ -153,7 +358,6 @@ function RecipeApp() {
                   </Tabs>
                 </div>
 
-                {/* Recipe grid */}
                 {isLoading ? (
                   <div
                     data-ocid="recipe.loading_state"
@@ -183,16 +387,39 @@ function RecipeApp() {
                       Try adjusting your search or changing the category filter.
                     </p>
                   </div>
+                ) : saladRecipes !== null && accompanimentRecipes !== null ? (
+                  // Split view: Salads first, then divider, then Accompaniments
+                  <div className="space-y-6">
+                    {saladRecipes.length > 0 && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        {saladRecipes.map((recipe, i) =>
+                          renderRecipeCard(recipe, i),
+                        )}
+                      </div>
+                    )}
+
+                    {/* Tangy Companions Divider */}
+                    <div className="flex items-center gap-4 py-2">
+                      <div className="flex-1 h-px bg-border" />
+                      <span className="text-base font-medium text-muted-foreground tracking-wide whitespace-nowrap">
+                        🥒 — Tangy Companions —
+                      </span>
+                      <div className="flex-1 h-px bg-border" />
+                    </div>
+
+                    {accompanimentRecipes.length > 0 && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        {accompanimentRecipes.map((recipe, i) =>
+                          renderRecipeCard(recipe, i),
+                        )}
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                    {filteredRecipes.map((recipe, i) => (
-                      <RecipeCard
-                        key={recipe.id.toString()}
-                        recipe={recipe}
-                        index={i + 1}
-                        onClick={setSelectedRecipe}
-                      />
-                    ))}
+                    {filteredRecipes.map((recipe, i) =>
+                      renderRecipeCard(recipe, i),
+                    )}
                   </div>
                 )}
               </div>
@@ -228,7 +455,13 @@ function RecipeApp() {
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RecipeApp />
+      <AuthProvider>
+        <FavoriteProvider>
+          <BookmarkProvider>
+            <RecipeApp />
+          </BookmarkProvider>
+        </FavoriteProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

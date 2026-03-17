@@ -22,6 +22,7 @@ export interface Recipe {
     category: string;
     ingredients: Array<string>;
     alternates?: Array<IngredientAlternate>;
+    servings?: number;
 }
 export interface backendInterface {
     getAllRecipes(): Promise<Array<Recipe>>;
