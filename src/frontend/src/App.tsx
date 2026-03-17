@@ -234,7 +234,7 @@ function RecipeApp() {
               className="font-display font-bold text-xl text-foreground hover:opacity-80 transition-opacity"
               aria-label="Go to recipe list"
             >
-              The Recipe Book
+              The Curated Kitchen
             </button>
           </div>
 
@@ -307,7 +307,7 @@ function RecipeApp() {
               <div className="relative h-56 md:h-72 overflow-hidden grain-overlay">
                 <img
                   src="/assets/generated/recipe-hero.dim_1200x400.jpg"
-                  alt="Recipe Book"
+                  alt="The Curated Kitchen"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
@@ -316,7 +316,7 @@ function RecipeApp() {
                     A curated collection
                   </p>
                   <h1 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-3">
-                    The Recipe Book
+                    The Curated Kitchen
                   </h1>
                   <p className="text-white/80 text-base max-w-md font-body">
                     Timeless recipes, thoughtfully crafted for everyday cooking
@@ -432,7 +432,7 @@ function RecipeApp() {
       <footer className="border-t border-border bg-card mt-auto">
         <div className="container max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} The Recipe Book</span>
+            <span>© {new Date().getFullYear()} The Curated Kitchen</span>
             <span className="text-border">·</span>
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-border bg-muted text-xs font-mono">
               📄 Data source: XML

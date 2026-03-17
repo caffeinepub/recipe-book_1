@@ -87,7 +87,7 @@ export function LoginPage({ onLoginSuccess, onBack }: LoginPageProps) {
         </div>
         <h1 className="font-display text-3xl font-bold mb-2">Welcome Back</h1>
         <p className="text-muted-foreground text-sm">
-          Sign in to your Recipe Book account
+          Sign in to your The Curated Kitchen account
         </p>
       </div>
 

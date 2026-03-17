@@ -14,6 +14,7 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import type { Recipe } from "../backend.d";
+import { NonVegIcon, VegIcon, getVegType, stripVegEmoji } from "./VegIcon";
 
 const CATEGORY_IMAGES: Record<string, string> = {
   Breakfast: "/assets/generated/recipe-breakfast.dim_600x400.jpg",
@@ -36,8 +37,9 @@ interface RecipeDetailProps {
 }
 
 function downloadRecipeTxt(recipe: Recipe) {
+  const cleanTitle = stripVegEmoji(recipe.title);
   const lines: string[] = [
-    recipe.title,
+    cleanTitle,
     `Category: ${recipe.category} | Serves: ${recipe.servings ?? "N/A"} | Prep: ${recipe.prepTime} | Cook: ${recipe.cookTime}`,
     "",
     "Description:",
@@ -53,7 +55,7 @@ function downloadRecipeTxt(recipe: Recipe) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `${recipe.title.replace(/[^a-z0-9]/gi, "_")}.txt`;
+  a.download = `${cleanTitle.replace(/[^a-z0-9]/gi, "_")}.txt`;
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -69,6 +71,8 @@ export function RecipeDetail({
     "bg-muted text-muted-foreground border-border";
 
   const hasAlternates = recipe.alternates && recipe.alternates.length > 0;
+  const vegType = getVegType(recipe.title);
+  const displayTitle = stripVegEmoji(recipe.title);
 
   const [liveCooking, setLiveCooking] = useState(false);
   const [checked, setChecked] = useState<Record<number, boolean>>({});
@@ -110,7 +114,7 @@ export function RecipeDetail({
         <div className="relative h-64 md:h-80 rounded-3xl overflow-hidden mb-8 shadow-card-hover">
           <img
             src={imgSrc}
-            alt={recipe.title}
+            alt={displayTitle}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
@@ -120,8 +124,17 @@ export function RecipeDetail({
             >
               {recipe.category}
             </span>
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight">
-              {recipe.title}
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight flex items-start gap-3">
+              {vegType && (
+                <span className="flex-shrink-0 mt-1">
+                  {vegType === "veg" ? (
+                    <VegIcon size={28} />
+                  ) : (
+                    <NonVegIcon size={28} />
+                  )}
+                </span>
+              )}
+              {displayTitle}
             </h1>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Bookmark, Clock, Heart } from "lucide-react";
 import { motion } from "motion/react";
 import type { Recipe } from "../backend.d";
+import { NonVegIcon, VegIcon, getVegType, stripVegEmoji } from "./VegIcon";
 
 const CATEGORY_IMAGES: Record<string, string> = {
   Breakfast: "/assets/generated/recipe-breakfast.dim_600x400.jpg",
@@ -43,6 +44,8 @@ export function RecipeCard({
   const categoryColor =
     CATEGORY_COLORS[recipe.category] ??
     "bg-muted text-muted-foreground border-border";
+  const vegType = getVegType(recipe.title);
+  const displayTitle = stripVegEmoji(recipe.title);
 
   return (
     <motion.button
@@ -53,7 +56,7 @@ export function RecipeCard({
       transition={{ duration: 0.35, delay: index * 0.07, ease: "easeOut" }}
       className="group cursor-pointer text-left w-full"
       onClick={() => onClick(recipe)}
-      aria-label={`View recipe: ${recipe.title}`}
+      aria-label={`View recipe: ${displayTitle}`}
     >
       <div className="recipe-card-hover bg-card rounded-2xl overflow-hidden shadow-card">
         {/* Image */}
@@ -73,8 +76,17 @@ export function RecipeCard({
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="font-display font-semibold text-lg leading-tight text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-            {recipe.title}
+          <h3 className="font-display font-semibold text-lg leading-tight text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors flex items-start gap-2">
+            {vegType && (
+              <span className="flex-shrink-0 mt-0.5">
+                {vegType === "veg" ? (
+                  <VegIcon size={18} />
+                ) : (
+                  <NonVegIcon size={18} />
+                )}
+              </span>
+            )}
+            {displayTitle}
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-4">
             {recipe.description}
