@@ -18,11 +18,44 @@ import { FssaiIcon } from "./VegIcon";
 
 import type { Recipe } from "../backend.d";
 
-const CATEGORY_IMAGES: Record<string, string> = {
-  Breakfast: "/assets/generated/recipe-breakfast.dim_600x400.jpg",
-  Lunch: "/assets/generated/recipe-lunch.dim_600x400.jpg",
-  Dinner: "/assets/generated/recipe-dinner.dim_600x400.jpg",
-  Dessert: "/assets/generated/recipe-dessert.dim_600x400.jpg",
+const RECIPE_IMAGES: Record<number, string> = {
+  2: "/assets/generated/recipe-french-omelette.dim_600x400.jpg",
+  20: "/assets/generated/recipe-kanchipuram-idli.dim_600x400.jpg",
+  21: "/assets/generated/recipe-corn-appe.dim_600x400.jpg",
+  22: "/assets/generated/recipe-cheesy-thalipeeth.dim_600x400.jpg",
+  3: "/assets/generated/recipe-carbonara.dim_600x400.jpg",
+  23: "/assets/generated/recipe-paneer-majestic.dim_600x400.jpg",
+  24: "/assets/generated/recipe-dahi-kadhi.dim_600x400.jpg",
+  25: "/assets/generated/recipe-batata-matar-kofta.dim_600x400.jpg",
+  5: "/assets/generated/recipe-rack-of-lamb.dim_600x400.jpg",
+  26: "/assets/generated/recipe-biryani.dim_600x400.jpg",
+  27: "/assets/generated/recipe-thai-green-curry.dim_600x400.jpg",
+  28: "/assets/generated/recipe-hakka-noodles.dim_600x400.jpg",
+  7: "/assets/generated/recipe-chocolate-lava-cake.dim_600x400.jpg",
+  29: "/assets/generated/recipe-kulfi.dim_600x400.jpg",
+  30: "/assets/generated/recipe-shrikhand.dim_600x400.jpg",
+  31: "/assets/generated/recipe-ice-cream-sizzler.dim_600x400.jpg",
+  10: "/assets/generated/recipe-mango-lassi.dim_600x400.jpg",
+  32: "/assets/generated/recipe-cold-coffee.dim_600x400.jpg",
+  33: "/assets/generated/recipe-strawberry-refresher.dim_600x400.jpg",
+  34: "/assets/generated/recipe-neer-mor.dim_600x400.jpg",
+  13: "/assets/generated/recipe-moong-salad.dim_600x400.jpg",
+  35: "/assets/generated/recipe-watermelon-salad.dim_600x400.jpg",
+  36: "/assets/generated/recipe-waldorf-salad.dim_600x400.jpg",
+  37: "/assets/generated/recipe-indian-summer-salad.dim_600x400.jpg",
+  16: "/assets/generated/recipe-boondi-raita.dim_600x400.jpg",
+  38: "/assets/generated/recipe-kimchi.dim_600x400.jpg",
+  39: "/assets/generated/recipe-kairi-salsa.dim_600x400.jpg",
+};
+
+const CATEGORY_FALLBACK: Record<string, string> = {
+  Breakfast: "/assets/generated/recipe-kanchipuram-idli.dim_600x400.jpg",
+  Lunch: "/assets/generated/recipe-paneer-majestic.dim_600x400.jpg",
+  Dinner: "/assets/generated/recipe-biryani.dim_600x400.jpg",
+  Dessert: "/assets/generated/recipe-kulfi.dim_600x400.jpg",
+  Beverages: "/assets/generated/recipe-mango-lassi.dim_600x400.jpg",
+  "Salads & Accompaniments":
+    "/assets/generated/recipe-indian-summer-salad.dim_600x400.jpg",
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -66,7 +99,10 @@ export function RecipeDetail({
   onBack,
   onViewAlternates,
 }: RecipeDetailProps) {
-  const imgSrc = CATEGORY_IMAGES[recipe.category] ?? CATEGORY_IMAGES.Dinner;
+  const imgSrc =
+    RECIPE_IMAGES[Number(recipe.id)] ??
+    CATEGORY_FALLBACK[recipe.category] ??
+    "/assets/generated/recipe-biryani.dim_600x400.jpg";
   const categoryColor =
     CATEGORY_COLORS[recipe.category] ??
     "bg-muted text-muted-foreground border-border";
