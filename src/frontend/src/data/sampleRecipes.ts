@@ -54,6 +54,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Unsalted butter is less common in Indian households; Amul salted butter is easily available.",
       },
     ],
+    tips: [
+      "Use eggs at room temperature for a more even cook.",
+      "The pan must be very hot before adding eggs — test by dropping a tiny bit of butter; it should foam immediately.",
+      "Never stop moving the pan and fork — constant motion creates the creamy texture.",
+      "Serve immediately; omelettes wait for no one.",
+    ],
   },
   {
     id: BigInt(20),
@@ -104,6 +110,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Chana dal adds a nutty bite; moong dal provides a similar texture and is widely available.",
       },
+    ],
+    tips: [
+      "Fermentation is key — a warm, humid kitchen speeds it up. In winters, keep the batter near a warm light.",
+      "Grease idli moulds generously with oil or ghee to prevent sticking.",
+      "Use an idli stand with a tight-fitting lid to trap steam evenly.",
+      "Chana dal gives a pleasant bite — don't skip soaking it beforehand.",
     ],
   },
   {
@@ -157,6 +169,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Rice flour gives a crispier exterior; besan gives a more earthy, dense flavour — both work well.",
       },
+    ],
+    tips: [
+      "Use fresh corn scraped off the cob for the best flavour — frozen corn works but tastes milder.",
+      "An appe/paniyaram pan with a lid gives perfectly round, evenly cooked fritters.",
+      "Keep the flame on low-medium — high heat browns the outside before the inside cooks.",
+      "Add finely grated cheese to the batter for a richer flavour.",
     ],
   },
   {
@@ -212,6 +230,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Ghee gives the best flavour and crispiness; butter or oil are practical substitutes.",
       },
     ],
+    tips: [
+      "Knead the dough soft but not sticky — add water gradually.",
+      "Wetting your palm before flattening the dough prevents sticking.",
+      "Cook on medium-low flame so the thick flatbread cooks through without burning.",
+      "Mozzarella works best for the cheesy pull, but processed cheese is fine too.",
+    ],
   },
 
   // ─── LUNCH ───────────────────────────────────────────────────────────────────
@@ -262,6 +286,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Original Parmigiano is costly and hard to find; locally available grated cheese works well.",
       },
     ],
+    tips: [
+      "Never add cream — authentic carbonara gets its creaminess only from eggs and cheese.",
+      "Reserve a cup of pasta water before draining; the starchy water is what makes the sauce silky.",
+      "Take the pan off heat before adding the egg mixture to avoid scrambling.",
+      "Use freshly grated Pecorino Romano or Parmesan — pre-grated cheese won't melt as smoothly.",
+      "Guanciale gives the best flavour, but good pancetta is an excellent substitute.",
+    ],
   },
   {
     id: BigInt(23),
@@ -310,6 +341,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Thick curd prevents the sauce from becoming too watery; strained regular curd works perfectly.",
       },
+    ],
+    tips: [
+      "Fry paneer in small batches so it crisps up — overcrowding the pan makes it steam instead.",
+      "Whisk the yogurt smooth before adding it to the pan to avoid curdling.",
+      "Kashmiri red chilli gives colour with moderate heat — adjust to your spice level.",
+      "Serve immediately while the paneer is still crispy.",
     ],
   },
   {
@@ -361,6 +398,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Hing is not everyone's pantry staple; the kadhi still tastes great without it, or garlic powder adds a subtle savory note.",
       },
     ],
+    tips: [
+      "Use sour yogurt for an authentic tangy Kadhi — fresh yogurt can be too mild.",
+      "Keep stirring after adding the yogurt-besan mixture to prevent lumps.",
+      "Simmer on low flame — high heat causes Kadhi to split.",
+      "The tadka (tempering) at the end is essential — don't skip the mustard seeds and curry leaves.",
+    ],
   },
   {
     id: BigInt(25),
@@ -410,6 +453,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Corn flour binds the kofta mix; breadcrumbs are an equally effective binder.",
       },
+    ],
+    tips: [
+      "Drain the boiled potatoes well and let them dry before mashing — excess moisture makes koftas fall apart.",
+      "Fry a small test kofta first; if it breaks, add more besan to the mixture.",
+      "Fry on medium heat for an even golden crust without burning.",
+      "Add a pinch of sugar to the gravy to balance the tartness of tomatoes.",
     ],
   },
 
@@ -462,6 +511,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Fresh thyme is hard to find in India; ajwain has a similar earthy, herbal flavor used in small amounts.",
       },
+    ],
+    tips: [
+      "Let the lamb come to room temperature for 30 minutes before roasting for even cooking.",
+      "Press the herb crust firmly onto the meat so it adheres well.",
+      "Use a meat thermometer — 57°C for medium-rare, 63°C for medium.",
+      "Rest the meat for at least 10 minutes before carving; this keeps it juicy.",
     ],
   },
   {
@@ -519,6 +574,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Aged basmati has longer grains and cooks fluffier; regular basmati rice is a perfectly acceptable substitute.",
       },
     ],
+    tips: [
+      "Marinate meat overnight for deeper flavour penetration.",
+      "Partially cook the rice (dum it when 70% done) so it finishes steaming with the meat.",
+      "Seal the pot with dough or a tight lid and cook on the lowest flame for dum cooking.",
+      "Fried onions (birista) are non-negotiable — make a generous batch; they add sweetness and texture.",
+      "Use aged basmati rice for the most fragrant, non-sticky biryani.",
+    ],
   },
   {
     id: BigInt(27),
@@ -573,6 +635,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Store-bought paste is convenient; a quick blended paste from pantry items makes a fresh, acceptable alternative.",
       },
     ],
+    tips: [
+      "Don't substitute coconut milk with any other liquid — it defines the dish.",
+      "Fry the green curry paste in oil before adding coconut milk to unlock deeper flavours.",
+      "Add vegetables in order of cooking time — hardest first, tender last.",
+      "Fish sauce brings authenticity; soy sauce is a fine substitute if unavailable.",
+      "Taste and balance with lime juice and a pinch of sugar at the end.",
+    ],
   },
   {
     id: BigInt(28),
@@ -619,6 +688,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "White vinegar provides a clean tartness; apple cider vinegar or lemon juice give the same brightness.",
       },
+    ],
+    tips: [
+      "Cook noodles al dente — slightly underdone — so they don't turn mushy when stir-fried.",
+      "Use a very hot wok for authentic stir-fry flavour (wok hei).",
+      "Fry Manchurian balls in batches; overcrowding causes steaming instead of crisping.",
+      "Add sauces gradually and taste as you go — soy sauce is salty.",
+      "Serve immediately — noodles and Manchurian lose their texture if they sit too long.",
     ],
   },
 
@@ -671,6 +747,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Raspberries are rare and expensive in India; strawberries or other local fruits serve the same purpose.",
       },
     ],
+    tips: [
+      "Use good-quality dark chocolate — it makes all the difference.",
+      "Butter and flour the ramekins thoroughly so the cakes release cleanly.",
+      "Refrigerate the batter for up to 24 hours — bake straight from the fridge, adding 1-2 minutes extra.",
+      "Test timing with one cake before baking the full batch — oven temperatures vary.",
+      "The centre should wobble slightly when you take it out; it sets from residual heat.",
+    ],
   },
   {
     id: BigInt(29),
@@ -719,6 +802,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Traditional kulfi is served in conical moulds; any small container works just as well for freezing.",
       },
+    ],
+    tips: [
+      "Reduce the milk slowly on low flame, stirring continuously to prevent burning at the bottom.",
+      "Soak saffron in warm milk for 10 minutes before adding — this extracts the most colour and flavour.",
+      "Fill kulfi moulds to the brim and tap to remove air pockets.",
+      "Freeze for a minimum of 8 hours; overnight gives the best texture.",
+      "To unmould, run the mould under lukewarm water for a few seconds.",
     ],
   },
   {
@@ -769,6 +859,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Saffron gives both colour and flavour; colour alone mimics the visual effect when saffron is unavailable.",
       },
     ],
+    tips: [
+      "Hang the yogurt in a thin muslin cloth overnight for the thickest, creamiest result.",
+      "Use thick, full-fat yogurt — low-fat yogurt takes much longer to drain and has less flavour.",
+      "Adjust sugar to taste after mixing — sweetness depends on how sour the yogurt is.",
+      "Chill thoroughly before serving for the best flavour.",
+    ],
   },
   {
     id: BigInt(31),
@@ -818,6 +914,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Condensed milk adds sweetness and body to the sauce; cream and sugar is an equivalent substitute.",
       },
     ],
+    tips: [
+      "Heat the cast-iron plate or sizzler tray until very hot before plating — it must sizzle on contact.",
+      "Work quickly once you start assembling — everything melts fast.",
+      "Use a generous scoop of ice cream per person; it's meant to be indulgent.",
+      "Chocolate sauce and caramel can be drizzled just before serving for extra drama.",
+    ],
   },
 
   // ─── BEVERAGES ───────────────────────────────────────────────────────────────
@@ -861,6 +963,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Thicker curd gives a creamier lassi; if using thin curd, reduce the milk quantity slightly.",
       },
+    ],
+    tips: [
+      "Use ripe, sweet Alphonso or Kesar mangoes for the richest flavour.",
+      "Chill both the yogurt and mango before blending for a cold drink without needing too much ice.",
+      "Add a pinch of cardamom powder for a fragrant, authentic touch.",
+      "Adjust sugar only after tasting — ripe mangoes are naturally sweet.",
     ],
   },
   {
@@ -911,6 +1019,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "South Indian filter coffee decoction adds a richer, more authentic coffee flavour to the mochaccino.",
       },
     ],
+    tips: [
+      "Use strong brewed coffee or espresso — weak coffee gets diluted by ice and milk.",
+      "Blend with ice for a frothy, cafe-style texture.",
+      "Adjust sweetness before blending — it's hard to stir sugar into a cold drink after.",
+      "Cacao powder adds richness without added fat — sift it to avoid lumps.",
+    ],
   },
   {
     id: BigInt(33),
@@ -960,6 +1074,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Honey blends smoothly but sets in very cold drinks; sugar syrup mixes evenly at any temperature.",
       },
     ],
+    tips: [
+      "Use ripe, fragrant strawberries for the best colour and flavour.",
+      "Peel the cucumber if it's bitter; English cucumbers can go in unpeeled.",
+      "Add mint just before serving to keep it fresh and fragrant.",
+      "For a still version, skip the sparkling water and use regular chilled water.",
+    ],
   },
   {
     id: BigInt(34),
@@ -1008,6 +1128,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Any plain yogurt (not flavoured) whisked with water makes perfect buttermilk; full-fat gives a richer result.",
       },
     ],
+    tips: [
+      "Blend the yogurt with water first until smooth, then add the tempering — prevents lumps.",
+      "Use fresh curry leaves — dried ones have far less aroma.",
+      "Adjust the consistency with more water; Neer Mor should be very thin and drinkable.",
+      "Serve ice cold for the best refreshing effect.",
+    ],
   },
 
   // ─── SALADS ──────────────────────────────────────────────────────────────────
@@ -1054,6 +1180,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Tamarind gives a distinctive sour depth; lime juice or dry mango powder is a widely available substitute.",
       },
+    ],
+    tips: [
+      "Sprout moong at home: soak overnight, then tie in a muslin cloth and leave in a warm place for 12–16 hours.",
+      "Add lemon juice just before serving to keep the salad bright and prevent wilting.",
+      "Blanch sprouts briefly if you prefer them less raw; a 30-second dip in boiling water makes them more digestible.",
+      "Add roasted peanuts or seeds for crunch and protein.",
     ],
   },
   {
@@ -1105,6 +1237,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Rocket has a peppery bite; baby spinach is widely available and makes a gentler base.",
       },
     ],
+    tips: [
+      "Chill the watermelon thoroughly before assembling — temperature contrast makes the salad more refreshing.",
+      "Add the cheese just before serving so it doesn't absorb moisture and get soggy.",
+      "A drizzle of extra virgin olive oil and a crack of black pepper elevates the simplest version.",
+      "Mint leaves add a wonderful freshness — don't skip them.",
+    ],
   },
   {
     id: BigInt(36),
@@ -1152,6 +1290,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Walnuts are traditional; toasted cashews or almonds give an equally satisfying crunch and nutty flavour.",
       },
+    ],
+    tips: [
+      "Toss apple pieces in lemon juice immediately after cutting to prevent browning.",
+      "Toast the walnuts lightly in a dry pan for extra depth of flavour.",
+      "Use Greek yogurt mixed with a little mayo for a lighter dressing.",
+      "Chill for 20 minutes before serving so the flavours come together.",
     ],
   },
   {
@@ -1207,6 +1351,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Black salt adds a distinctive sulphurous, mineral note that is characteristic of chaat; regular salt is a simpler alternative.",
       },
     ],
+    tips: [
+      "Use seasonal, peak-summer produce — ripe mangoes and crisp cucumbers make this salad shine.",
+      "Add chaat masala just before serving so it doesn't draw out moisture.",
+      "A handful of roasted makhana (lotus seeds) adds crunch and is very Indian.",
+      "Balance sweet, sour, and spicy — taste and adjust before serving.",
+    ],
   },
 
   // ─── ACCOMPANIMENTS ──────────────────────────────────────────────────────────
@@ -1250,6 +1400,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Regular curd can be thickened easily at home by draining; store-bought hung curd also works.",
       },
+    ],
+    tips: [
+      "Soak boondi in warm water for 5 minutes, then squeeze out water before adding to yogurt — this makes them soft inside while staying slightly crisp outside.",
+      "Whisk yogurt smooth before adding boondi to get a creamy, lump-free raita.",
+      "Chill before serving — cold raita is far more refreshing alongside spicy food.",
+      "Plain boondi gives a milder raita; masala boondi adds extra spice.",
     ],
   },
   {
@@ -1302,6 +1458,13 @@ export const SAMPLE_RECIPES: Recipe[] = [
           "Traditional kimchi uses Napa cabbage, which has softer leaves; regular white cabbage makes an excellent substitute.",
       },
     ],
+    tips: [
+      "Salt the cabbage and let it sit for at least 2 hours — this draws out moisture and creates the right texture.",
+      "Taste the paste before applying — adjust chilli, ginger, and salt to your preference.",
+      "Use clean, dry utensils throughout to avoid introducing bad bacteria.",
+      "Press the kimchi down firmly in the jar to remove air pockets — this helps fermentation.",
+      "Taste daily; once it reaches your preferred tang level, move it to the fridge.",
+    ],
   },
   {
     id: BigInt(39),
@@ -1353,6 +1516,12 @@ export const SAMPLE_RECIPES: Recipe[] = [
         reason:
           "Chaat masala is a blend of spices; amchur and cumin replicate its key tangy-savoury notes.",
       },
+    ],
+    tips: [
+      "Use raw, unripe mango for the sharp tang — a semi-ripe mango will be too sweet.",
+      "Rest the salsa for 15 minutes before serving so the flavours meld.",
+      "Adjust green chilli carefully — raw mango salsa can get very spicy.",
+      "Add fresh coriander leaves generously for an authentic Indian touch.",
     ],
   },
 ];
