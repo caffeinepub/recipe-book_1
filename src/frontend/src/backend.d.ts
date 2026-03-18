@@ -24,6 +24,8 @@ export interface Recipe {
     alternates?: Array<IngredientAlternate>;
     servings?: number;
     tips?: Array<string>;
+    /** e.g. "French", "Italian", "Thai", "American", "Korean" — omit for Indian recipes */
+    cuisine?: string;
 }
 export interface backendInterface {
     getAllRecipes(): Promise<Array<Recipe>>;

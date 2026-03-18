@@ -11,6 +11,7 @@ interface AlternatesPageProps {
 
 export function AlternatesPage({ recipe, onBack }: AlternatesPageProps) {
   const hasAlternates = recipe.alternates && recipe.alternates.length > 0;
+  const isInternational = !!recipe.cuisine;
 
   return (
     <motion.div
@@ -47,18 +48,36 @@ export function AlternatesPage({ recipe, onBack }: AlternatesPageProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 mt-4 mb-3">
-        <Badge
-          variant="secondary"
-          className="text-xs bg-orange-100 text-orange-700 border-orange-200"
-        >
-          Indian Kitchen Friendly
-        </Badge>
+      <div className="flex items-center gap-2 mt-4 mb-3 flex-wrap">
+        {isInternational ? (
+          <>
+            <Badge
+              variant="secondary"
+              className="text-xs bg-blue-100 text-blue-700 border-blue-200"
+            >
+              {recipe.cuisine} Recipe
+            </Badge>
+            <Badge
+              variant="secondary"
+              className="text-xs bg-orange-100 text-orange-700 border-orange-200"
+            >
+              Indian Ingredient Alternatives
+            </Badge>
+          </>
+        ) : (
+          <Badge
+            variant="secondary"
+            className="text-xs bg-orange-100 text-orange-700 border-orange-200"
+          >
+            Indian Kitchen Friendly
+          </Badge>
+        )}
       </div>
 
       <p className="text-sm text-muted-foreground leading-relaxed mb-8 border-l-4 border-orange-300 pl-4">
-        Can't find an ingredient or it's too costly? Here are easy substitutes
-        commonly available in Indian homes and local markets.
+        {isInternational
+          ? `This is an authentic ${recipe.cuisine} recipe — kept exactly as it was meant to be made. The substitutes below replace hard-to-find or expensive ingredients with easily available Indian alternatives.`
+          : "Can't find an ingredient or it's too costly? Here are easy substitutes commonly available in Indian homes and local markets."}
       </p>
 
       {hasAlternates ? (

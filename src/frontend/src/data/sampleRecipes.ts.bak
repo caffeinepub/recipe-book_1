@@ -5,7 +5,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(2),
     title: "Classic French Omelette",
-    cuisine: "French",
     servings: 1,
     category: "Breakfast",
     description:
@@ -243,7 +242,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(3),
     title: "Spaghetti alla Carbonara",
-    cuisine: "Italian",
     servings: 4,
     category: "Lunch",
     description:
@@ -468,7 +466,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(5),
     title: "Herb-Crusted Rack of Lamb",
-    cuisine: "French",
     servings: 4,
     category: "Dinner",
     description:
@@ -588,7 +585,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(27),
     title: "Thai Green Curry with Steamed Rice",
-    cuisine: "Thai",
     servings: 4,
     category: "Dinner",
     description:
@@ -650,7 +646,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(28),
     title: "Hakka Noodles with Vegetable Manchurian (Indo-Chinese Style)",
-    cuisine: "Indo-Chinese",
     servings: 3,
     category: "Dinner",
     description:
@@ -707,7 +702,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(7),
     title: "Chocolate Lava Cake",
-    cuisine: "French",
     servings: 6,
     category: "Dessert",
     description:
@@ -1197,7 +1191,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(35),
     title: "Watermelon & Cheese Salad",
-    cuisine: "Mediterranean",
     servings: 3,
     category: "Salads",
     description:
@@ -1254,7 +1247,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(36),
     title: "Classic Waldorf Salad",
-    cuisine: "American",
     servings: 4,
     category: "Salads",
     description:
@@ -1419,7 +1411,6 @@ export const SAMPLE_RECIPES: Recipe[] = [
   {
     id: BigInt(38),
     title: "Kimchi (Indian-Style Fermented Cabbage)",
-    cuisine: "Korean",
     servings: 8,
     category: "Accompaniments",
     description:
