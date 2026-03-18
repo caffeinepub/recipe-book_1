@@ -13,6 +13,9 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { VEG_STATUS } from "../data/vegStatus";
+import { FssaiIcon } from "./VegIcon";
+
 import type { Recipe } from "../backend.d";
 
 const CATEGORY_IMAGES: Record<string, string> = {
@@ -120,8 +123,14 @@ export function RecipeDetail({
             >
               {recipe.category}
             </span>
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight">
-              {recipe.title}
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight flex items-start gap-2">
+              <span className="mt-1 shrink-0">
+                <FssaiIcon
+                  isVeg={VEG_STATUS[Number(recipe.id)] ?? true}
+                  size={24}
+                />
+              </span>
+              <span>{recipe.title}</span>
             </h1>
           </div>
         </div>

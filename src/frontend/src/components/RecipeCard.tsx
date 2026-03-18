@@ -1,6 +1,8 @@
 import { Bookmark, Clock, Heart } from "lucide-react";
 import { motion } from "motion/react";
 import type { Recipe } from "../backend.d";
+import { VEG_STATUS } from "../data/vegStatus";
+import { FssaiIcon } from "./VegIcon";
 
 // Per-recipe image map keyed by recipe ID (as number)
 const RECIPE_IMAGES: Record<number, string> = {
@@ -114,8 +116,11 @@ export function RecipeCard({
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="font-display font-semibold text-lg leading-tight text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-            {recipe.title}
+          <h3 className="font-display font-semibold text-lg leading-tight text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors flex items-start gap-1.5">
+            <span className="mt-0.5 shrink-0">
+              <FssaiIcon isVeg={VEG_STATUS[Number(recipe.id)] ?? true} />
+            </span>
+            <span>{recipe.title}</span>
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-4">
             {recipe.description}

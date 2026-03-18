@@ -4,7 +4,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── BREAKFAST ───────────────────────────────────────────────────────────────
   {
     id: BigInt(2),
-    title: "🔴 Classic French Omelette",
+    title: "Classic French Omelette",
     servings: 1,
     category: "Breakfast",
     description:
@@ -57,7 +57,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(20),
-    title: "🟢 Spiced South Indian Idli (Kanchipuram Style)",
+    title: "Spiced South Indian Idli (Kanchipuram Style)",
     servings: 4,
     category: "Breakfast",
     description:
@@ -108,7 +108,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(21),
-    title: "🟢 Savory Corn Fritters (Green Corn Appe)",
+    title: "Savory Corn Fritters (Green Corn Appe)",
     servings: 3,
     category: "Breakfast",
     description:
@@ -161,7 +161,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(22),
-    title: "🟢 Multigrain Stuffed Flatbread (Cheesy Thalipeeth)",
+    title: "Multigrain Stuffed Flatbread (Cheesy Thalipeeth)",
     servings: 3,
     category: "Breakfast",
     description:
@@ -217,7 +217,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── LUNCH ───────────────────────────────────────────────────────────────────
   {
     id: BigInt(3),
-    title: "🔴 Spaghetti alla Carbonara",
+    title: "Spaghetti alla Carbonara",
     servings: 4,
     category: "Lunch",
     description:
@@ -265,8 +265,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(23),
-    title:
-      "🟢 Crispy Paneer in Spicy Yogurt Sauce (Hyderabadi Paneer Majestic)",
+    title: "Crispy Paneer in Spicy Yogurt Sauce (Hyderabadi Paneer Majestic)",
     servings: 3,
     category: "Lunch",
     description:
@@ -315,7 +314,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(24),
-    title: "🟢 Maharashtrian Yogurt Kadhi with Rice (Dahi Kadhi Rice)",
+    title: "Maharashtrian Yogurt Kadhi with Rice (Dahi Kadhi Rice)",
     servings: 4,
     category: "Lunch",
     description:
@@ -365,7 +364,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(25),
-    title: "🟢 Potato and Green Pea Dumplings in Gravy (Batata Matar Kofta)",
+    title: "Potato and Green Pea Dumplings in Gravy (Batata Matar Kofta)",
     servings: 4,
     category: "Lunch",
     description:
@@ -417,7 +416,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── DINNER ──────────────────────────────────────────────────────────────────
   {
     id: BigInt(5),
-    title: "🔴 Herb-Crusted Rack of Lamb",
+    title: "Herb-Crusted Rack of Lamb",
     servings: 4,
     category: "Dinner",
     description:
@@ -467,7 +466,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(26),
-    title: "🔴 Indian Biryani — Chicken/Mutton",
+    title: "Indian Biryani — Chicken/Mutton",
     servings: 5,
     category: "Dinner",
     description:
@@ -523,7 +522,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(27),
-    title: "🟢 Thai Green Curry with Steamed Rice",
+    title: "Thai Green Curry with Steamed Rice",
     servings: 4,
     category: "Dinner",
     description:
@@ -577,7 +576,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(28),
-    title: "🟢 Hakka Noodles with Vegetable Manchurian (Indo-Chinese Style)",
+    title: "Hakka Noodles with Vegetable Manchurian (Indo-Chinese Style)",
     servings: 3,
     category: "Dinner",
     description:
@@ -626,7 +625,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── DESSERT ─────────────────────────────────────────────────────────────────
   {
     id: BigInt(7),
-    title: "🔴 Chocolate Lava Cake",
+    title: "Chocolate Lava Cake",
     servings: 6,
     category: "Dessert",
     description:
@@ -675,7 +674,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(29),
-    title: "🟢 Saffron Pistachio Kulfi (Indian Ice Cream)",
+    title: "Saffron Pistachio Kulfi (Indian Ice Cream)",
     servings: 6,
     category: "Dessert",
     description:
@@ -724,7 +723,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(30),
-    title: "🟢 Sweetened Yogurt Dessert with Dry Fruits (Rajbhog Shrikhand)",
+    title: "Sweetened Yogurt Dessert with Dry Fruits (Rajbhog Shrikhand)",
     servings: 4,
     category: "Dessert",
     description:
@@ -773,7 +772,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(31),
-    title: "🟢 Ice Cream Sizzler",
+    title: "Ice Cream Sizzler",
     servings: 2,
     category: "Dessert",
     description:
@@ -824,7 +823,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── BEVERAGES ───────────────────────────────────────────────────────────────
   {
     id: BigInt(10),
-    title: "🟢 Mango Lassi",
+    title: "Mango Lassi",
     servings: 2,
     category: "Beverages",
     description:
@@ -866,7 +865,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(32),
-    title: "🟢 Low-Fat Mochaccino (Cold Coffee)",
+    title: "Low-Fat Mochaccino (Cold Coffee)",
     servings: 2,
     category: "Beverages",
     description:
@@ -915,7 +914,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(33),
-    title: "🟢 Strawberry Cucumber Refresher",
+    title: "Strawberry Cucumber Refresher",
     servings: 2,
     category: "Beverages",
     description:
@@ -964,7 +963,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(34),
-    title: "🟢 Spiced Buttermilk (Neer Mor — South Indian Style)",
+    title: "Spiced Buttermilk (Neer Mor — South Indian Style)",
     servings: 3,
     category: "Beverages",
     description:
@@ -1014,7 +1013,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── SALADS ──────────────────────────────────────────────────────────────────
   {
     id: BigInt(13),
-    title: "🟢 Sprouted Moong Salad",
+    title: "Sprouted Moong Salad",
     servings: 2,
     category: "Salads",
     description:
@@ -1059,7 +1058,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(35),
-    title: "🟢 Watermelon & Cheese Salad",
+    title: "Watermelon & Cheese Salad",
     servings: 3,
     category: "Salads",
     description:
@@ -1109,7 +1108,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(36),
-    title: "🟢 Classic Waldorf Salad",
+    title: "Classic Waldorf Salad",
     servings: 4,
     category: "Salads",
     description:
@@ -1157,7 +1156,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(37),
-    title: "🟢 Indian Summer Salad",
+    title: "Indian Summer Salad",
     servings: 3,
     category: "Salads",
     description:
@@ -1213,7 +1212,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   // ─── ACCOMPANIMENTS ──────────────────────────────────────────────────────────
   {
     id: BigInt(16),
-    title: "🟢 Boondi Raita",
+    title: "Boondi Raita",
     servings: 4,
     category: "Accompaniments",
     description:
@@ -1255,7 +1254,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(38),
-    title: "🟢 Kimchi (Indian-Style Fermented Cabbage)",
+    title: "Kimchi (Indian-Style Fermented Cabbage)",
     servings: 8,
     category: "Accompaniments",
     description:
@@ -1306,7 +1305,7 @@ export const SAMPLE_RECIPES: Recipe[] = [
   },
   {
     id: BigInt(39),
-    title: "🟢 Raw Mango Salsa (Kairi Salsa — Indian Salsa)",
+    title: "Raw Mango Salsa (Kairi Salsa — Indian Salsa)",
     servings: 4,
     category: "Accompaniments",
     description:
