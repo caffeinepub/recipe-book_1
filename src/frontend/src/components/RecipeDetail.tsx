@@ -337,26 +337,26 @@ export function RecipeDetail({
               ))}
             </ol>
           </section>
-
-          {recipe.tips && recipe.tips.length > 0 && (
-            <section className="mt-8" aria-label="Tips">
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-2xl">💡</span>
-                  <h2 className="text-lg font-semibold text-amber-900">Tips</h2>
-                </div>
-                <ul className="space-y-2">
-                  {recipe.tips.map((tip) => (
-                    <li key={tip} className="flex gap-2 text-sm text-amber-800">
-                      <span className="mt-0.5 text-amber-500 font-bold">•</span>
-                      <span>{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          )}
         </div>
+
+        {recipe.tips && recipe.tips.length > 0 && (
+          <section className="mt-8" aria-label="Tips">
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl">💡</span>
+                <h2 className="text-lg font-semibold text-amber-900">Tips</h2>
+              </div>
+              <ul className="space-y-2">
+                {recipe.tips.map((tip) => (
+                  <li key={tip} className="flex gap-2 text-sm text-amber-800">
+                    <span className="mt-0.5 text-amber-500 font-bold">•</span>
+                    <span>{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
       </div>
     </motion.div>
   );
