@@ -19,7 +19,7 @@ import {
   User,
 } from "lucide-react";
 import { AnimatePresence } from "motion/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Recipe } from "./backend.d";
 import { AlternatesPage } from "./components/AlternatesPage";
 import { BookmarksPage } from "./components/BookmarksPage";
@@ -69,6 +69,12 @@ function RecipeApp() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [page, setPage] = useState<Page>("list");
+
+  // Scroll to top on every page change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: page is the intentional trigger
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [page]);
 
   const { data: backendRecipes, isLoading } = useGetAllRecipes();
 
